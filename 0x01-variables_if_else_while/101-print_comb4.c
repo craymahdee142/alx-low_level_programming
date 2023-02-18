@@ -1,29 +1,33 @@
 #include <stdio.h>
 /**
- * main - Prints combination of three numbers
+ * main - Combination of three different digits
  * Return: 0 (Succes)
  */
 int main(void)
 {
-	int n;
-	int i;
+        int i, j, k;
 
-	for (n = 0 ; n < 9 ; n++)
-	{
-		i = n + 1;
-		do {
-			putchar('0' + n);
-			putchar('0' + i);
-			if (n < 8)
-			{
-				putchar(',');
-				putchar(32);
-			}
-			i++;
-		} while (i < 10);
-	}
-	putchar('\n');
-	return (0);
+        for (i = 0; i < 8; i++)
+        {
+                for (j = i + 1; j < 9; j++)
+                {
+                        for (k = j + 1; k < 10; k++)
+                        {
+                                putchar((i % 10) + '0');
+                                putchar((j % 10) + '0');
+                                putchar((k % 10) + '0');
+
+                                if (i == 7 && j == 8 && k == 9)
+                                        continue;
+                                putchar(',');
+                                putchar(' ');
+                        }
+                }
+        }
+
+        putchar('\n');
+
+        return (0);
 }
 
 
