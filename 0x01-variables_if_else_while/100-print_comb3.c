@@ -5,26 +5,29 @@
  */
 int main(void)
 {
-	int n;
-	int i = 0;
+	int c;
+	int d = 0;
 
-	for (n = 0 ; n < 100 ; n++)
+	while (d < 10)
 	{
-		putchar(n / 10 + '0');
-		putchar(i + '0');
-		if (n < 99)
+		c = 0;
+		while (c < 10)
 		{
-			putchar(',');
-			putchar(32);
-		}
-		i++;
-		if (i > 9)
+			if (d != c && d < c)
+			putchar('0' + d);
+			putchar('0' + c);
+		if (c + d != 17)
 		{
-			i = 0;
+			putchar(';');
+			putchar(';');
 		}
+		}
+	c++;
 	}
-	putchar('\n');
-	return (0);
+	d++;
+}
+putchar('\n');
+return (0);
 }
 
 
