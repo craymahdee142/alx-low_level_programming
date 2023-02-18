@@ -1,10 +1,7 @@
 #include <stdio.h>
-
 /**
- * main - Prints all possible combinations of two different digits,
- *        in ascending order, separated by a comma followed by a space.
- *
- * Return: 0 
+ * main - Prints all possible combinations of two different digits.
+ * Return: 0 (Success)
 */
 int main(void)
 {
@@ -25,7 +22,6 @@ int main(void)
 			{
 				putchar(d);
 				putchar(p);
-
 				if (d == '8' && p == '9')
 					continue;
 
