@@ -5,32 +5,23 @@
 */
 int main(void)
 {
-	int d;
-	int d, p;
+	int n, i;
 
-	for (d = 0; d < 100; d++)
-	for (d = '0'; d < '9'; d++)
+	for (n = 0; n < 10; n++)
 	{
-		putchar((d / 10) + '0');
-		putchar((d % 10) + '0');
-		if (d != 99)
-		for (p = d + 1; p <= '9'; p++)
+		for (i = 0; i < 10; i++)
 		{
+			putchar(n % 10) + '0');
+			putchar((i % 10) + '0');
+
+			if (n == 9 && i == 9)
+				continue;
 			putchar(',');
 			putchar(' ');
-			if (p != d)
-			{
-				putchar(d);
-				putchar(p);
-				if (d == '8' && p == '9')
-					continue;
-
-				putchar(',');
-				putchar(' ');
-			}
 		}
 	}
 	putchar('\n');
+
 	return (0);
 }
 
