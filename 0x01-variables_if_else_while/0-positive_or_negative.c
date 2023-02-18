@@ -5,7 +5,7 @@
 
 /* betty style doc for function main goes there */
 /**
- * main - Entry poit
+ * main -A program that prints a random number
  * Return 0 (Succes)
  */
 int main(void)
