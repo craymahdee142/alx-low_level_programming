@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
   * main - print the first 50 fibonacci numbers.
-  * Return: Nothing.
+  * Return: 0 (Success)
   */
 int main(void)
 {
