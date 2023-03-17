@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		_putchar("Error\n");
+		printf("Error\n");
 		exit(98);
 	}
 	for (i = 1; i < argc; i++)
@@ -23,14 +23,14 @@ int main(int argc, char *argv[])
 		{
 			if (argv[i][j] > 57 || argv[i][j] < 48)
 			{
-				_putchar("Error\n");
+				printf("Error\n");
 				exit(98);
 			}
 		}
 
 	}
 	mul = atol(argv[1]) *  atol(argv[2]);
-	_putchar("%lu\n", mul);
+	printf("%lu\n", mul);
 	return (0);
 }
 
