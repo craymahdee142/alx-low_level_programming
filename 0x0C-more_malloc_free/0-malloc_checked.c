@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdlib.h>
 
 /**
@@ -6,11 +5,11 @@
  * @b: size of memoery to be allocated
  * Return: pointer to allocated memory
  */
-voaid *malloc_checked(unsigned int b)
+void *malloc_checked(unsigned int b)
 {
-	void *p = malloc(b);
+	void *ptr = malloc(b);
 
-	if (p == NULL)
+	if (ptr == NULL)
 		exit(98);
-	return (p);
+	return (ptr);
 }
