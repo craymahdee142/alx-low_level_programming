@@ -1,5 +1,5 @@
-#ifndef _HEADER_
-#define -HEADER_
+#ifndef DOG_H
+#define DOG_H
 
 /**
  *struct dog - a dog's basix info
@@ -11,8 +11,8 @@
 struct dog
 {
 	char *name;
-	float *age;
 	char *owner;
+	float age;
 };
  /**
  *dog_t - typedef for the struct dog
