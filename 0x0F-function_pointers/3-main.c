@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, j, ans;
+	int num1, num2;
 	int (*func)(int, int);
 	char *get_op;
 
@@ -20,25 +20,23 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	i = atoi(argv[1]);
-	j = atoi(argv[3]);
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
 	get_op = argv[2];
 
-	if (get_op_func(argv[2]) == NULL || argv[2][1] != '\0')
+	if (get_op_func(get_op) == NULL || get_op[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	if ((*get_op == '/' || *get_op == '%') && (*argv[3] == '0'))
+	if ((*get_op == '/' && num2 == 0) || (*get_op == '%' && num2 == 0))
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
 	func = get_op_func(get_op);
-	ans = res(i, j);
-
-	printf("%d\n", ans);
+	printf("%d\n", func(num1, num2);
 	return (0);
 }
