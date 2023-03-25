@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * op_add - 5 functions
+ * op_add - add t2 numbers 
  * @a: input one
  * @b: input two
  * Return: 0
@@ -12,7 +12,7 @@ int op_add(int a, int b)
 	return (a + b);
 }
 /**
- * op_sub - 5 functions
+ * op_sub - substract 2 numbers
  * @a: input one
  * @b: input two
  * Return: 0
@@ -22,7 +22,7 @@ int op_sub(int a, int b)
 	return (a - b);
 }
 /**
- * op_mul - 5 functions
+ * op_mul - multiply 2 numbers
  * @a: input one
  * @b: input two
  * Return: 0
@@ -32,7 +32,7 @@ int op_mul(int a, int b)
 	return (a * b);
 }
 /**
- * op_div - 5 functions
+ * op_div - divide 2 numbers
  * @a: input one
  * @b: input two
  * Return: 0
@@ -42,7 +42,7 @@ int op_div(int a, int b)
 	return (a / b);
 }
 /**
- * op_mod - 5 functions
+ * op_mod - find rememder of 2 numbers
  * @a: input one
  * @b: input two
  * Return: 0
