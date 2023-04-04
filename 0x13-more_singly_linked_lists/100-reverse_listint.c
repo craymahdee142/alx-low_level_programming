@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -8,18 +7,18 @@
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *prev = NULL;
-	listint_t *next = NULL;
+	listint_t *prev, *current;
 
-	while (*head)
+	if (head == NULL || *current == NULL)
+		return (NULL);
+	prev = NULL;
+	while ((*cureent)->next != NULL)
 	{
-		next = (*head)->next;
-		(*head)->next = prev;
-		prev = *head;
-		*head = next;
+		current = (*current)->next;
+		(*current)->next = prev;
+		prev = *current;
+		*current = current;
 	}
-
-	*head = prev;
-
+	(*head)->next = prev;
 	return (*head);
 }
