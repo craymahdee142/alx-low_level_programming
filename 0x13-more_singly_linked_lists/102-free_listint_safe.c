@@ -22,7 +22,7 @@ size_t free_listint_safe(listint_t **h)
 		tmp = head;
 		free(tmp);
 		if (diff >= 0)
-			braek;
+			break;
 		head = head->next;
 	}
 	return (count);
