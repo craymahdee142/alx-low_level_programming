@@ -7,7 +7,7 @@
  *@index: Position of the first node
  *Return: node address
  */
-listint_t *get_nodeint_at_index(listint_t *head, unsigend int index)
+listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	listint_t *current = head;
 	unsigned int i = 0;
@@ -18,7 +18,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigend int index)
 	{
 		i++;
 		current = current->next;
-		if (head == NULL)
+		if (current == NULL)
 		return (NULL);
 	}
 	return (current);
