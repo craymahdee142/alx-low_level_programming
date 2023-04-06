@@ -47,7 +47,7 @@ size_t looped_listint_count(listint_t *head)
  *Return: size of list bto be freed
  *Description: The function sets to head to NULL
  */
-size_free_listint_safe(listint_t **h)
+size_t free_listint_safe(listint_t **h)
 {
 	listint_t *tmp;
 	size_t nodes, i;
