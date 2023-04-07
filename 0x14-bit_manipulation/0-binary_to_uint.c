@@ -20,7 +20,7 @@ unsigned int binary_to_unit(const char *b)
 	}
 	for (i = 0; b[i] != '\0'; i++)
 	{
-		num << 1; /* equivalent to  num = num * 2*/
+		num <<= 1; /* equivalent to  num = num * 2*/
 		num += b[i] == '1'; /* if b[i] is 1 add 1 to num otherwise add 0*/
 	}
 	return (num);
