@@ -17,13 +17,10 @@ unsigned int binary_to_unit(const char *b)
 		return (0);
 	for (i = 0; b[i] != '\0'; i++)
 	{
-		for (i = strlen(b) - 1; i >= 0; i--)
-		{
-			if (b[i] != '0' && b[i] != '1')
-				return (0);
-			num += (b[i] - '0') << power;
-			power++;
-		}
+		if (b[i] != '0' && b[i] != '1')
+			return (0);
+	num += (unsigned int)(pow(2, i) * (b[strlen(b) - i - 1] - '0'));
+	power++;
 	}
 	return (num);
 }
