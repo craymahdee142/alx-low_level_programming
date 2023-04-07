@@ -1,5 +1,6 @@
 #include "main.h"
 #include <math.h>
+#include <string.h>
 /**
  *binary_to_unit - function that converts binary to an unsigned int
  *@b: Pointing to a string of 0 and 1 chars
@@ -18,10 +19,10 @@ unsigned int binary_to_unit(const char *b)
 	{
 		if (b[i] < '0' && b[i] > '1')
 			return (0);
-	/*}
-	for (i = strlen(b) - 1; i >= 0; i++)
-	{*/
-		num += (unsigned int)(b[i] - '0') << power;
+	}
+	for (i = strlen(b) - 1; i >= 0; i--)
+	{
+		num += (b[i] - '0') << power;
 		power++;
 	}
 	return (num);
