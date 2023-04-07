@@ -17,11 +17,7 @@ unsigned int binary_to_unit(const char *b)
 	{
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
-	}
-	for (i = 0; b[i] != '\0'; i++)
-	{
-		num <<= 1; /* equivalent to  num = num * 2*/
-		num += b[i] == '1'; /* if b[i] is 1 add 1 to num otherwise add 0*/
+	num = 2 * num + (b[i] - '0');
 	}
 	return (num);
 }
