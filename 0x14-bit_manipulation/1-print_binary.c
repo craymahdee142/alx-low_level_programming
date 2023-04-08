@@ -9,12 +9,17 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int num = n;
-	int i = 0, count = 0;
+	int i, count = 0;
 
 	for (i = 31; i >= 0; i--)
 	{
-		_putchar((num >> i) & 1 ? '1' : '0');
-		count++;
+		if ((num >> i) & 1) /* checks if the i-th bit of num is set to 1 or 0 */
+		{
+			_putchar('1');
+			count++;
+		}
+		else
+			_putchar('0'); /* print 0 is the i-th bit os 0 */
 	}
 	if (count == 0)
 	{
