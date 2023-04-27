@@ -1,53 +1,73 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <errno.h>
 #include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
-#define BUFFER_SIZE 1024
+void check_IO_stat(int stat, int fd, char *filename, char mode);
+/**
+* main - copies the content of one file to another
+* @argc: argument count
+* @argv: arguments passed
+*
+* Return: 1 on success, exit otherwise
+*/
+int main(int argc, char *argv[])
+{
+int src, dest, n_read, wrote, close_src, close_dest;
+unsigned int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+char buffer[1024];
 
-int main(int argc, char *argv[]) {
-    int source_fd, dest_fd, bytes_read, bytes_written;
-    char buffer[BUFFER_SIZE];
+if (argc != 3)
+{
+fprintf(stderr, "Usage: cp file_from file_to\n");
+exit(EXIT_FAILURE);
+}
 
-    if (argc != 3) {
-        fprintf(stderr, "Usage: %s source_file destination_file\n", argv[0]);
-        exit(1);
-    }
+src = open(argv[1], O_RDONLY);
+if (src == -1)
+{
+perror("Error opening file for reading");
+exit(EXIT_FAILURE);
+}
+dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+if (dest == -1)
+{
+perror("Error opening file for writing");
+exit(EXIT_FAILURE);
+}
 
-    source_fd = open(argv[1], O_RDONLY);
-    if (source_fd == -1) {
-        perror("open");
-        exit(2);
-    }
+while ((n_read = read(src, buffer, sizeof(buffer))) > 0)
+{
+wrote = write(dest, buffer, n_read);
+if (wrote == -1)
+{
+perror("Error writing to file");
+exit(EXIT_FAILURE);
+}
+}
 
-    dest_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0666);
-    if (dest_fd == -1) {
-        perror("open");
-        exit(3);
-    }
+if (n_read == -1)
+{
+perror("Error reading from file");
+exit(EXIT_FAILURE);
+}
 
-    while ((bytes_read = read(source_fd, buffer, BUFFER_SIZE)) > 0) {
-        bytes_written = write(dest_fd, buffer, bytes_read);
-        if (bytes_written == -1) {
-            perror("write");
-            exit(4);
-        }
-    }
+close_src = close(src);
+if (close_src == -1)
+{
+perror("Error closing file descriptor for input file");
+exit(EXIT_FAILURE);
+}
 
-    if (bytes_read == -1) {
-        perror("read");
-        exit(5);
-    }
+close_dest = close(dest);
+if (close_dest == -1)
+{
+perror("Error closing file descriptor for output file");
+exit(EXIT_FAILURE);
+}
 
-    if (close(source_fd) == -1) {
-        perror("close");
-        exit(6);
-    }
-
-    if (close(dest_fd) == -1) {
-        perror("close");
-        exit(7);
-    }
-
-    return 0;
+return (0);
 }
