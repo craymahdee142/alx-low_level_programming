@@ -7,7 +7,7 @@
  *@letters: number of char to be read
  *Return: 0 (success)
  */
-size_t read_textfile(const char *filename, size_t letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *fp;
 	size_t count = 0;
