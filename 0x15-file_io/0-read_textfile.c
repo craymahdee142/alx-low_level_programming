@@ -11,16 +11,16 @@ size_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *fp;
 	size_t count = 0;
-	int ch;
+	int c;
 
 	if (filename == NULL)
 		return (0);
 	fp = fopen(filename, "r");
 	if (fp == NULL)
 		return (0);
-	while ((count < letters) && (ch = fgetc(fp)) != EOF)
+	while (count < letters && (c = fgetc(fp)) != EOF)
 	{
-		putchar(ch);
+		putchar(c);
 		count++;
 	}
 	if (ferror(fp) != 0)
