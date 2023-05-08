@@ -1,24 +1,26 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
  *read_textfile - function that read a file
- *@filename: pointer to the file name
- *@letters: number of char to be read
+ *@filename: Pointer to the name of file
+ *@letters: number of char to read from the file
  *Return: 0 (success)
  */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *fp;
-	size_t count = 0;
 	char c;
+	size_t count = 0;
 
 	if (filename == NULL)
 		return (0);
+
 	fp = fopen(filename, "r");
 	if (fp == NULL)
+	{
 		return (0);
-	while ((count < letters) && ((c = fgetc(fp)) != EOF))
+	}
+	while ((count < letters) && (c = fgetc(fp)) != EOF)
 	{
 		putchar(c);
 		count++;
@@ -31,5 +33,4 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fclose(fp);
 	return (count);
 }
-
 
