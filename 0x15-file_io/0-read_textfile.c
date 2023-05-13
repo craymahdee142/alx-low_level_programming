@@ -18,7 +18,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fp = fopen(filename, "r");
 	if (fp == NULL)
 		return (0);
-	while ((count < letters) && (c = fgetc(fp)) != EOF)
+	while (count < letters && (c = fgetc(fp)) != EOF)
 	{
 		fputc(c, stderr);
 		count++;
