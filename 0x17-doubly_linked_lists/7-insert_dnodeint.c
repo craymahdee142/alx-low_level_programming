@@ -2,6 +2,7 @@
 
 /**
  *insert_dnodeint_at_index - insert node a specified position
+ *@h: pointer
  *@idx: index
  *@n: integer
  *Return: dlistint_t
@@ -9,7 +10,7 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *current = *h, *new_node;
-	unsigned int count = 0 ;
+	unsigned int count = 0;
 
 	new_node = malloc(sizeof(dlistint_t));
 
@@ -35,7 +36,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			return (new_node);
 		}
 	/* if idx - 1 equals count, found desired position */
-		else if (idx -1 == count)
+		else if (idx - 1 == count)
 		{
 			new_node->next = current->next;
 			new_node->prev = current;
