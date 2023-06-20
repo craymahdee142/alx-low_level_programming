@@ -6,8 +6,8 @@
  */
 void *malloc(size_t size)
 {
-(void)size;
-return (NULL);
+	(void)size;
+	return (NULL);
 }
 /**
  *rand - picks random number
@@ -15,5 +15,5 @@ return (NULL);
  */
 int rand(void)
 {
-return (9);
+	return (9);
 }
