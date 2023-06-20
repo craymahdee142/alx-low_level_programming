@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -P .. https://raw.githubusercontent.com/monoprosito/holbertonschool-low_level+programming/master0x18-dynamic_libraries/libgiga.so
+sleep 98; cp 101-make_me_win.so /tmp
 export LD_PRELOAD="$PWD/../libgiga.so"
