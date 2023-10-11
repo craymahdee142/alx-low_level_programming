@@ -14,7 +14,7 @@
  */
 int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 {
-	size_t i, mid;
+	size_t  i;
 
 	/* check if right boundary is less than left boundary */
 	if (right < left)
@@ -24,14 +24,14 @@ int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 	for (i = left; i < right; i++)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
-	mid = left + (right - left) / 2;
+	i = left + (right - left) / 2;
 
 	/* check if middle value is element and is first occurance */
-	if (array[mid] == value && (mid == left || array[mid - 1] == value))
-		return (mid);
-	if (array[mid] >= value)
-		return (advanced_binary_recursive(array, left, mid, value));
-	return (advanced_binary_recursive(array, mid + 1, right, value));
+	if (array[i] == value && (i == left || array[i - 1] == value))
+		return (i);
+	if (array[i] >= value)
+		return (advanced_binary_recursive(array, left, i, value));
+	return (advanced_binary_recursive(array, i + 1, right, value));
 }
 
 /**
